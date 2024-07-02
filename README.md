@@ -93,3 +93,8 @@ Gerente deve ter as seguintes informações:
 | + mudarTipoConta(cliente: Cliente, conta: ContaBancaria, novoTipo: string): void |
 +-----------------------+
 ```
+
+### Detalhes da implementação
+Nesta semana, decidi seguir rigorosamente o que foi pedido no desafio. Com o diagrama, consegui organizar o código de forma mais estruturada e simplificada, o que vai facilitar as próximas implementações. Retirei as funções que criavam uma interface de linha de comando interativa. Apesar de considerar a interatividade importante, acredito que posso programar essa funcionalidade no futuro, com mais organização.
+
+O arquivo index.ts foi criado para realizar as invocações das funções. Nele, um cliente é criado, em seguida, são criadas sua conta poupança e sua conta corrente, e transferências de valores da conta poupança para a conta corrente são realizadas. Também há o caso da criação de uma gerente, onde a gerente cria um novo cliente, abre ambos os tipos de contas para o cliente e depois fecha a conta poupança do cliente.
