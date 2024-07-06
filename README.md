@@ -1,95 +1,81 @@
-# Desafio Semana3
+# Reprograma Bank
 
-### Objetivos de aprendizagem do desafio 🎯
+# Para compilar
+Instale as dependências necessárias
 
-- Entender como o TypeScript, uma linguagem de programação superset de JavaScript, se integra naturalmente ao ecossistema do Node.js.
-- Compreender os princípios e características de uma arquitetura RESTful.
-- Identificar os recursos, URIs, métodos HTTP e códigos de status comuns em uma API REST.
-- Aprender a projetar e implementar uma API RESTful usando Node.js, seguindo as melhores práticas de REST.
+`npm init -y`
 
+`npm install express typescript ts-node @types/node @types/express`
 
-<h2 align=center> {Reprograma}Bank </h2>
-<h3>Disponibilizando nossa API</h3>
+## Estrutura de Pastas
 
-Seu desafio é criar uma API RESTful para o sistema bancário desenvolvido na semana 2, agora incluindo a funcionalidade de Gerente de Conta. O Gerente é responsável por gerenciar os clientes e suas contas, podendo abrir, fechar e modificar o tipo de conta.
+│node_modules/
 
-Abaixo estão os requisitos:
+├── src/
 
-Ao cliente do banco ser adicionadas as seguintes informações:
+│   ├── controllers/
 
-- Contas
-- Gerente
+│   │   └── xxxController.ts
 
-Gerente deve ter as seguintes informações:
+│   ├── models/
 
-- Nome completo
-- Número de identificação (ID)
-- Clientes
+│   │   └── clienteModel.ts
 
-#### Requisitos de negócio:
+│   │   └── contaCorrenteModel.ts
 
-- Criar classes para representar Cliente e Gerente, incluindo os atributos mencionados no diagrama.
-- Implementar métodos nas classes Cliente e Gerente para abrir, fechar e modificar o tipo de conta.
-- Atualizar a classe Conta para manter uma referência ao cliente associado a ela.
-- Implementar métodos na classe Gerente para adicionar e remover clientes, bem como para abrir, fechar e modificar o tipo de conta para um determinado cliente.
-- Organizar a estrutura do projeto de forma apropriada, seguindo as melhores práticas para uma API RESTful.
+│   │   └── contaPoupancaModel.ts
 
-### Diagrama:
+│   │   └── contaModel.ts
 
-```lua
-+---------------------------------+
-|           Cliente               |
-+---------------------------------+
-| - nomeCompleto: string          |
-| - id: string                    |
-| - endereco: string              |
-| - telefone: string              |
-| - contas: ContaBancaria[]       |
-| - gerente: Gerente              |
-+---------------------------------+
-| + constructor(...)              |
-| + abrirConta(conta: ContaBancaria): void |
-| + fecharConta(conta: ContaBancaria): void |
-| + mudarTipoConta(conta: ContaBancaria, novoTipo: string): void |
-+---------------------------------+
-              |
-              |
-     +--------+---------+
-     |                  |
-+----v----+      +------v------+
-| Conta   |      | ContaCorrente|
-+---------+      +-------------+
-| # saldo |      | # chequeEspecial: number
-+---------+      +-------------+
-| depositar(valor: number): void |
-| sacar(valor: number): void     |
-| verificarSaldo(): number       |
-| transferir(destino: ContaBancaria, valor: number): void |
-+-----------------+
-        ^
-        |
-+-------+-------+
-|               |
-| ContaPoupanca |
-+---------------+
-| # taxaJuros: number
-+---------------+
-| calcularTaxa(): number |
-| transferir(destino: ContaBancaria, valor: number): void |
-+---------------+
+│   │   └── gerenteModel.ts
 
-+-----------------------+
-|        Gerente        |
-+-----------------------+
-| - nomeCompleto: string|
-| - id: string          |
-| - clientes: Cliente[] |
-+-----------------------+
-| + constructor(...)    |
-| + adicionarCliente(cliente: Cliente): void |
-| + removerCliente(cliente: Cliente): void |
-| + abrirConta(cliente: Cliente, tipoConta: string): void |
-| + fecharConta(cliente: Cliente, conta: ContaBancaria): void |
-| + mudarTipoConta(cliente: Cliente, conta: ContaBancaria, novoTipo: string): void |
-+-----------------------+
-```
+│   ├── routes/
+
+│   │   └── clienteRoutes.ts
+
+│   │   └── contaRoutes.ts
+
+│   │   └── gerenteRoutes.ts
+
+│   │   └── transacoesRoutes.ts
+
+│   ├── services/
+
+│   │   └── clienteService.ts
+
+│   │   └── contaService.ts
+
+│   │   └── gerenteService.ts
+
+│   └── index.ts
+
+├── package.json
+
+├── tsconfig.json
+
+└── README.md
+
+# Instruções para compilar o projeto
+## Para executar
+`npm start`
+
+## Para instalar o express
+`npm install express`
+
+## Para instalar o typescript
+`npm install typescript`
+
+## Para instalar o ts-node
+`npm install ts-node`
+
+## Para instalar o @types/node
+`npm install @types/node`
+
+## Para instalar o @types/express
+`npm install @types/express`
+
+## Para instalar o nodemon
+`npm install nodemon`
+
+## Para executar o nodemon
+`npx nodemon src/index.ts`
